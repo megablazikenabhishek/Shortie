@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
 export class MainComponent {
   generatedUrl: string = '';
   actualUrl: string = '';
-  backendUrl: string = 'https://shortie-hxo4.onrender.com';
+  backendUrl: string = 'https://shortie-ij0p.onrender.com';
 
   constructor(private snackBar: MatSnackBar) {}
 
@@ -56,7 +56,7 @@ export class MainComponent {
     }
 
     const { data } = await axios.post(
-      `${this.backendUrl}/addUrl?actual_url=${this.actualUrl}`
+      `${this.backendUrl}/addUrl?actual_url="${this.actualUrl}"`
     );
     console.log(data);
     if (data.actualUrl === null)
