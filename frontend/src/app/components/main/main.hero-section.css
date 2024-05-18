@@ -1,0 +1,34 @@
+.another-ctn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 24px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-top: 32px;
+    }
+}
+
+.headline {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    height: 60px;
+    padding-top: 10px;
+    background: linear-gradient(90deg, rgba(255, 0, 150, 1) 0%, rgba(255, 154, 0, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.description {
+    font-size: 0.875rem;
+    font-weight: 200;
+    color: #C9CED6;
+    text-align: center;
+    white-space: pre-wrap;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}

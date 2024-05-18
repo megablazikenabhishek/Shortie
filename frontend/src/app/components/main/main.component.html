@@ -1,0 +1,27 @@
+
+<div class="container">
+    <div class="another-ctn">
+        <div class="headline">
+            Shorten Your Loooong Links
+        </div>
+        <div class="description">
+            Shortie is an efficient and easy-to-use URL shortening service <br />
+            that streamlines your online experience.
+        </div>
+    </div>
+
+    <div class="inner-container">
+        <div class="inputbox">
+            <input required="required" type="text">
+            <span>Enter the URL</span>
+            <i></i>
+        </div>
+        <button class="generate-btn">Generate</button>
+    </div>
+
+    <br>
+    <div class="result-container">
+        <input placeholder="Username" class="result-input" [value]="generatedUrl" disabled name="text" type="text">
+        <button mat-raised-button class="copy-btn" (click)="copyToClipboard()">Copy</button>
+    </div>
+</div>
