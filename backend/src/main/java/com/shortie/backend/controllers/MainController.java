@@ -1,14 +1,12 @@
 package com.shortie.backend.controllers;
 
-import java.util.Optional;
 import java.util.Random;
 
-import org.apache.jasper.tagplugins.jstl.core.Url;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -33,6 +31,7 @@ public class MainController {
     }
 
     @GetMapping("/")
+    @CrossOrigin(origins = "*")
     @ResponseBody
     public String getHome() {
         System.out.println("hello");
@@ -41,9 +40,13 @@ public class MainController {
     }
 
     @PostMapping("/addUrl")
+    @CrossOrigin(origins = "*")
     @ResponseBody
     public Shortie addUrl(@RequestParam String actual_url) {
         Shortie shortie = new Shortie();
+        if (urlRepo.findByActuralUrl(actual_url).size() > 0) {
+            return shortie;
+        }
         try {
             String shortCode;
             List<Shortie> existingUrl;
@@ -66,6 +69,7 @@ public class MainController {
     }
 
     @GetMapping("/get")
+    @CrossOrigin(origins = "*")
     @ResponseBody
     public Shortie getShortUrl(@RequestParam String short_url) {
         List<Shortie> temp = urlRepo.findByShortUrl(short_url);

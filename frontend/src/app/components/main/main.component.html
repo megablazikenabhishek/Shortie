@@ -10,17 +10,23 @@
         </div>
     </div>
 
-    <div class="inner-container">
+    <form class="inner-container" (ngSubmit)="generateShortUrl()">
         <div class="inputbox">
-            <input required="required" type="text">
+            <input required="required" type="text" name="actualUrl" [(ngModel)]="actualUrl">
             <span>Enter the URL</span>
             <i></i>
         </div>
-        <button class="generate-btn">Generate</button>
-    </div>
+        <button class="generate-btn" >Generate</button>
+    </form>
 
     <br>
-    <div class="result-container">
+
+    <div *ngIf="this.generatedUrl.length > 0;" class="description">
+        Shortie is an efficient and easy-to-use URL shortening service <br />
+        that streamlines your online experience.
+    </div>
+
+    <div *ngIf="this.generatedUrl.length > 0;" class="result-container">
         <input placeholder="Username" class="result-input" [value]="generatedUrl" disabled name="text" type="text">
         <button mat-raised-button class="copy-btn" (click)="copyToClipboard()">Copy</button>
     </div>
