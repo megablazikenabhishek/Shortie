@@ -37,17 +37,24 @@ export class MainComponent {
 
   isValidHttpUrl() {
     let url;
-    
+
     try {
       url = new URL(this.actualUrl);
     } catch (_) {
-      return false;  
+      return false;
     }
 
-    return url.protocol === "http:" || url.protocol === "https:";
+    return url.protocol === 'http:' || url.protocol === 'https:';
   }
 
   async generateShortUrl() {
+    if (!this.isValidHttpUrl()) {
+      this.snackBar.open('Not A valid URL!!!', 'Close', {
+        duration: 3000,
+      });
+      return;
+    }
+
     const { data } = await axios.post(
       `${this.backendUrl}/addUrl?actual_url=${this.actualUrl}`
     );
